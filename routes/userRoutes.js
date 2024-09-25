@@ -1,15 +1,17 @@
 import express from 'express';
-import { deleteUser, getUserById, getUsersData, loginUser, postUserData, registerUser, updateUser } from '../controllers/user.js';
+import { addUser, deleteUser, getUser, getUserById, loginUser, logoutUser, registerUser, updateUser } from '../controllers/user.js';
+import upload from '../utils/helper.js';
 
 const userRoute = express.Router();
 
-userRoute.post("/createuser" , postUserData );
-userRoute.get("/get", getUsersData);
-userRoute.get("/get/:id", getUserById);
-userRoute.delete("/delete/:id" , deleteUser)
-userRoute.post("/update/:id" ,  updateUser);
-userRoute.post("/registerUser" , registerUser);
-userRoute.post("/login" , loginUser);
+userRoute.post("/adduser" ,upload.single('image'), addUser );
+userRoute.get("/getuser", getUser);
+userRoute.get("/getuser/:id", getUserById);
+userRoute.delete("/deleteuser/:id" , deleteUser)
+userRoute.put("/updateuser/:id" ,  updateUser);
+userRoute.post("/registeruser" , registerUser);
+userRoute.post("/loginuser" ,loginUser);
+userRoute.post("/logoutuser" , logoutUser);
 
 
 

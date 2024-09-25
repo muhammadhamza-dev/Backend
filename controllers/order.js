@@ -12,9 +12,9 @@ export const createOrder = async (req, res) => {
         });
 
         const savedOrder = await newOrder.save();
-        res.status(201).json(savedOrder);
+        return res.status(201).json(savedOrder);
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        return res.status(500).json({ error: error.message });
     }
 };
 

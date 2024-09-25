@@ -3,8 +3,8 @@ import { getPaymentByOrderId, processPayment } from '../controllers/payment.js';
 
 const paymentRoute =  express.Router();
 
-paymentRoute.post("/" , processPayment);
-paymentRoute.get("/:id" , getPaymentByOrderId);
+paymentRoute.post("/payment" , processPayment);
+paymentRoute.get("payment/:id" , getPaymentByOrderId);
 
 export default paymentRoute;
 
